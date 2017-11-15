@@ -34,6 +34,7 @@
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-whitelist": "^1.3.1",
         "crypto-js": "^3.1.9-1",
+        "cz.blocshop.socketsforcordova": "^1.1.0",
         "ionic-angular": "3.8.0",
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
@@ -54,7 +55,8 @@
             "cordova-plugin-ionic-webview": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {}
+            "ionic-plugin-keyboard": {},
+            "cz.blocshop.socketsforcordova": {}
         },
         "platforms": [
             "android"
