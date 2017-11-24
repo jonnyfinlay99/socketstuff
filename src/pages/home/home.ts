@@ -247,13 +247,13 @@ export class HomePage {
     var delay = 25000;	/// 5 seconds timeout
     (<any>window).chrome.sockets.tcp.create({}, createInfo => { //callback function with createInfo as the parameter
       var _socketTcpId = createInfo.socketId;
-      //console.log('CREATE SOCKET');
+      console.log('CREATE SOCKET');
       (<any>window).chrome.sockets.tcp.connect(_socketTcpId, IP, Port, result => { //callback function with result as the parameter
-        //console.log(result);
-        //console.log('What is the result');
+        console.log(result);
+        console.log('What is the result');
         if (result === 0) {
-          //console.log('What is encryptedInfo');
-          //console.log(this.encryptedInfo);
+          console.log('What is encryptedInfo');
+          console.log(this.encryptedInfo);
           let message = this.str2ab(this.encryptedInfo);
           var newMessage = this.hexStringToByte(this.encryptedInfo);
 
@@ -261,27 +261,27 @@ export class HomePage {
           (<any>window).chrome.sockets.tcp.onReceive.addListener(info => { //callback function with info as the parameter
             /// recived, then close connection
             console.log('onReceive ' + info);
-            (<any>window).chrome.sockets.tcp.close(_socketTcpId);
             var data = this.ab2str(info.data);
             console.log(data);
-            // this.successAlert();
-
-            if (data.indexOf('ERR') >= 0) {
+            if (data.indexOf('ERROR') >= 0) {
               this.errorAlert();
+              (<any>window).chrome.sockets.tcp.close(_socketTcpId);
+
 
             } else {
               this.successAlert();
+              (<any>window).chrome.sockets.tcp.close(_socketTcpId);
 
             }
 
           });
           chrome.sockets.tcp.setPaused(_socketTcpId, false);
 
-          // console.log('What is the message before being sent');
-          // console.log(newMessage.buffer);
+          console.log('What is the message before being sent');
+          console.log(newMessage.buffer);
           (<any>window).chrome.sockets.tcp.send(_socketTcpId, newMessage.buffer, ((info) => {
-            // console.log('SENDING THE PACKET UP');
-            // console.log(info);
+            console.log('SENDING THE PACKET UP');
+            console.log(info);
 
 
           }));
