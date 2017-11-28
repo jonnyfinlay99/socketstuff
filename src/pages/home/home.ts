@@ -12,7 +12,6 @@ declare var Socket;
 declare var CryptoJS;
 declare var aesjs;
 // declare var pkcs7;
-
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -21,7 +20,7 @@ export class HomePage {
   private tcpstream: BehaviorSubject<Object> = new BehaviorSubject({});
   private socketid: number;
   private localAddress: string;
-
+  private seenPopup: Boolean;
   private wifi = {
     name: '',
     password: ''
@@ -38,7 +37,10 @@ export class HomePage {
       subTitle: 'Wifi has been successfully paired to the device',
       buttons: ['Dismiss']
     });
-    alert.present();
+    if (this.seenPopup == false) {
+      alert.present();
+      this.seenPopup = true;
+    }
   }
 
   errorAlert() {
@@ -110,7 +112,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad ');
-
+    this.seenPopup = false;
     var testString = 'c61f3d4b59da2b394eab989b69b29be10feafc832fb1d9c9679ec9165465ecf4';
 
 
@@ -244,7 +246,7 @@ export class HomePage {
     let Port = 80
     //console.log('Button');
 
-    var delay = 25000;	/// 5 seconds timeout
+    var delay = 40000;	/// 5 seconds timeout
     (<any>window).chrome.sockets.tcp.create({}, createInfo => { //callback function with createInfo as the parameter
       var _socketTcpId = createInfo.socketId;
       console.log('CREATE SOCKET');
@@ -266,14 +268,10 @@ export class HomePage {
             if (data.indexOf('ERROR') >= 0) {
               this.errorAlert();
               (<any>window).chrome.sockets.tcp.close(_socketTcpId);
-
-
-            } else {
+            } else if (data.indexOf('SUCCESS') >= 0 || data.indexOf('OK') >= 0) {
               this.successAlert();
               (<any>window).chrome.sockets.tcp.close(_socketTcpId);
-
             }
-
           });
           chrome.sockets.tcp.setPaused(_socketTcpId, false);
 

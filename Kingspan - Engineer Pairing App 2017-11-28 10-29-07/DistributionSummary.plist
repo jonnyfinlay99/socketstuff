@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kingspan - Engineer Pairing App.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>3619293287158C2B1E26D824A59CD2C185FB5242</string>
+				<key>dateExpires</key>
+				<string>03/10/2018</string>
+				<key>type</key>
+				<string>iOS Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>C8V5GS95X8.io.socketstuff.com</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>C8V5GS95X8</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Kingspan - Engineer Pairing App.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>a633d93e-cdf9-4d43-b57b-97f1d2c49dcc</string>
+				<key>name</key>
+				<string>KingspanSocketEngineerAppAdHoc</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>C8V5GS95X8</string>
+				<key>name</key>
+				<string>Origin Partners Limited</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
